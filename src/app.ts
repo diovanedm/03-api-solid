@@ -13,7 +13,7 @@ app.setErrorHandler((error, _request, reply) => {
     });
   }
 
-  if (env.NDOE_ENV !== "production") {
+  if (env.NODE_ENV !== "production") {
     console.error(error);
   } else {
     // TODO Here we should log to an external tool link DataDog/NewRelic/Sentry

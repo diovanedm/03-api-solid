@@ -7,7 +7,11 @@
     "dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
-    "lint": "npx @biomejs/biome check --apply src/"
+    "lint": "npx @biomejs/biome check --apply src/",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "keywords": [],
   "author": "",
@@ -16,14 +20,19 @@
     "@biomejs/biome": "1.4.1",
     "@types/bcryptjs": "2.4.6",
     "@types/node": "20.10.5",
+    "@vitest/coverage-v8": "1.1.0",
+    "@vitest/ui": "1.1.0",
     "prisma": "5.7.1",
     "tsup": "8.0.1",
     "tsx": "4.7.0",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "vite-tsconfig-paths": "4.2.2",
+    "vitest": "1.1.0"
   },
   "dependencies": {
     "@prisma/client": "5.7.1",
     "bcryptjs": "2.4.3",
+    "dayjs": "1.11.10",
     "dotenv": "16.3.1",
     "fastify": "4.25.1",
     "zod": "3.22.4"
