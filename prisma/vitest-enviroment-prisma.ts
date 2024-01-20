@@ -29,7 +29,7 @@ export default (<Environment>{
       async teardown() {
         const prisma = new PrismaClient();
         await prisma.$executeRawUnsafe(
-          `DROP SHEMA IF EXISTS "${schema}" CASCADE`,
+          `DROP SCHEMA IF EXISTS "${schema}" CASCADE`,
         );
         await prisma.$disconnect();
       },
