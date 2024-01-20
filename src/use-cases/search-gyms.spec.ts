@@ -40,11 +40,11 @@ describe("Search Use Case", () => {
     ]);
   });
 
-  it.skip("should be able to fetch pagineted gyms search", async () => {
+  it("should be able to fetch pagineted gyms search", async () => {
     const userId = "user_01";
     for (let i = 1; i <= 22; i++) {
       gymsRepository.create({
-        title: `Javascript ${i}`,
+        title: `Javascript Gym ${i}`,
         latitude: -19.8978423,
         longitude: -44.0100051,
         description: null,
@@ -59,8 +59,8 @@ describe("Search Use Case", () => {
 
     expect(gyms).toHaveLength(2);
     expect(gyms).toEqual([
-      expect.objectContaining({ gym_id: "Javascript Gym 21" }),
-      expect.objectContaining({ gym_id: "Javascript Gym 22" }),
+      expect.objectContaining({ title: "Javascript Gym 21" }),
+      expect.objectContaining({ title: "Javascript Gym 22" }),
     ]);
   });
 });
