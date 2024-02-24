@@ -18,8 +18,10 @@ export async function refresh(request: FastifyRequest, reply: FastifyReply) {
     },
   );
 
+  const { role } = request.user;
+
   const refreshToken = await reply.jwtSign(
-    {},
+    { role },
     {
       sign: {
         sub: request.user.sub,
@@ -30,7 +32,7 @@ export async function refresh(request: FastifyRequest, reply: FastifyReply) {
 
   return reply
     .setCookie("refreshToken", refreshToken, {
-      path: "/", // Define quais rotas da aplicação vai ter acesso ao  cookie
+      path: "/", // Define quais rotas da aplicação o backend vai ter acesso ao  cookie
       secure: true, // Define que o cookie vai ser encriptado pelo HTTPs
       sameSite: true, // Só vai ser acessivel dentro do mesmo domínio/site
       httpOnly: true, // Só vai conseguir ser acessado pelo backend. Não vai ficar salvo no browser
